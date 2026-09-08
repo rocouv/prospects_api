@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+#[Table(key: 'prospect_id')]
 class Prospect extends Model
 {
     //
