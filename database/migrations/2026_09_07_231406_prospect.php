@@ -13,9 +13,10 @@ return new class extends Migration
     {
         //
         Schema::create("prospects", function(Blueprint $table) {
+            $table->id();
             $table->string("name");
             $table->string("phone",10)->unique();
-            $table->boolean("estatus")->default(false);
+            $table->boolean("estatus")->default(true);
             $table->timestamps();
         });
     }

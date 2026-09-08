@@ -11,6 +11,11 @@ git clone https://github.com/rocouv/prospects_api.git
 cd prospects_api
 ```
 
+### 2. Cambiar a la rama correspondiente
+```bash
+git checkout -b fix/validacion-prospectos
+```
+
 ### 2. Instalar las dependencias
 
 ```bash

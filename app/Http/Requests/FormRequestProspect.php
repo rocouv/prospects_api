@@ -33,19 +33,29 @@ class FormRequestProspect extends FormRequest
             ],
             "phone" => [
                 "required",
-                "string",
-                "max:10",
+                "digits:10",
                 "unique:prospects,phone"
             ],
         ];
     }
 
-    protected function failedValidation(Validator $validator): void {
+    protected function failedValidation(Validator $validator): void 
+    {
         throw new HttpResponseException(
             response() -> json([
                 "message" => "Validación fallida",
                 "errors" => $validator->errors()
             ], 422)
         );
+    }
+
+    public function messages(): array 
+    {
+        return [
+            "name.required" => "El nombre es obligatorio",
+            "phone.required" => "El teléfono es obligatorio",
+            "phone.digits" => "El teléfono debe contener exactamente 10 digitos",
+            "phone.unique" => "El teléfono ya está registrado"
+        ];
     }
 }
